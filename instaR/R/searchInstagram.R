@@ -101,7 +101,7 @@ searchInstagram <- function(tag=NULL, token, n=100, lat=NULL, lng=NULL,
     stop("No public posts mentioning the string were found")
   }
   
-  df <- searchListToDF(content$data)
+  df <- content$data
   
   
   if (!is.null(folder)){
@@ -139,7 +139,7 @@ searchInstagram <- function(tag=NULL, token, n=100, lat=NULL, lng=NULL,
         if (error==3){ stop("Error") }
       }
       
-      new.df <- searchListToDF(content$data)
+      new.df <- content$data
       if (all(new.df$id %in% unlist(lapply(df.list, '[[', 'id'))== TRUE)){
         break
       }

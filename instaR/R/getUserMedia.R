@@ -73,7 +73,7 @@ getUserMedia <- function(username, token, n=30, folder=NULL, userid=NULL, verbos
         stop("No public posts mentioning the string were found")
     }
 
-    df <- searchListToDF(content$data)
+    df <- content$data
 
     if (!is.null(folder)){
         if (verbose) message("Downloading pictures...")
@@ -100,7 +100,7 @@ getUserMedia <- function(username, token, n=30, folder=NULL, userid=NULL, verbos
                 if (error==3){ stop("Error") }
             }
             
-            new.df <- searchListToDF(content$data)
+            new.df <- content$data
             
             # downloading pictures
             if (!is.null(folder)){
